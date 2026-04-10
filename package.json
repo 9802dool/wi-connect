@@ -2,6 +2,7 @@
   "name": "wi-connect",
   "version": "0.1.0",
   "private": true,
+  "description": "WI CONNECT marketplace demo — run dev on http://localhost:3003 (Look Meh Dey portfolio is a separate app on :3000)",
   "scripts": {
     "dev": "next dev -p 3003",
     "build": "next build",
