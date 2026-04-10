@@ -3,28 +3,60 @@
 import { useMemo, useState } from "react";
 
 import { ListingCard } from "@/components/ListingCard";
-import { featuredListings, filterByTab } from "@/lib/listings";
+import {
+  auctionCatalogListings,
+  featuredListings,
+  filterByTab,
+} from "@/lib/listings";
 
-const tabs = [
+const homeTabs = [
   { id: "all" as const, label: "All listings" },
-  { id: "auctions" as const, label: "Auctions" },
   { id: "bin" as const, label: "Buy It Now & offers" },
   { id: "business" as const, label: "Business & bulk" },
 ];
 
-export function MarketplaceCatalog() {
-  const [tab, setTab] = useState<(typeof tabs)[number]["id"]>("all");
+type TabId = (typeof homeTabs)[number]["id"];
 
-  const rows = useMemo(() => filterByTab(featuredListings, tab), [tab]);
+type MarketplaceCatalogProps = {
+  /** Home: Buy It Now, offers, business. Auctions live on `/auctions`. */
+  variant?: "home" | "auctions-only";
+};
+
+export function MarketplaceCatalog({ variant = "home" }: MarketplaceCatalogProps) {
+  const isAuctionsPage = variant === "auctions-only";
+  const tabs = homeTabs;
+  const [tab, setTab] = useState<TabId>("all");
+
+  const rows = useMemo(() => {
+    if (isAuctionsPage) return auctionCatalogListings;
+    const base = featuredListings.filter((l) => l.format !== "auction");
+    if (tab === "all") return base;
+    return filterByTab(base, tab);
+  }, [tab, isAuctionsPage]);
 
   return (
     <section id="browse" className="scroll-mt-28 bg-wi-surface py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="font-display text-2xl font-bold text-wi-navy">Marketplace</h2>
+        <h2 className="font-display text-2xl font-bold text-wi-navy">
+          {isAuctionsPage ? "Auction marketplace" : "Marketplace"}
+        </h2>
         <p className="mt-1 max-w-3xl text-slate-600">
-          Filter by how you want to buy: live auctions, instant &quot;Buy It Now&quot; and Best Offer from
-          individuals, or verified business inventory and quotes.
+          {isAuctionsPage ? (
+            <>
+              Live C2C auctions — place your max bid; we&apos;ll proxy-bid up to your limit. Ending-soon picks and
+              all open auction listings in one place.
+            </>
+          ) : (
+            <>
+              Filter by how you want to buy: instant &quot;Buy It Now&quot; and Best Offer from individuals, or
+              verified business inventory and quotes.{" "}
+              <a href="/auctions" className="font-semibold text-wi-blue hover:underline">
+                Browse live auctions →
+              </a>
+            </>
+          )}
         </p>
+        {!isAuctionsPage && (
         <div
           className="mt-6 flex flex-wrap gap-2 border-b border-slate-200 pb-3"
           role="tablist"
@@ -47,6 +79,7 @@ export function MarketplaceCatalog() {
             </button>
           ))}
         </div>
+        )}
         <p className="mt-4 text-sm text-slate-500">
           Showing <strong className="text-wi-navy">{rows.length}</strong>{" "}
           {rows.length === 1 ? "listing" : "listings"}

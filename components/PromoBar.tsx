@@ -9,7 +9,7 @@ export function PromoBar() {
           <a href="#deals" className="hover:text-wi-blue">
             Daily Deals
           </a>
-          <a href="#auctions" className="hover:text-wi-blue">
+          <a href="/auctions" className="hover:text-wi-blue">
             Auctions ending
           </a>
           <a href="#business" className="hover:text-wi-blue">

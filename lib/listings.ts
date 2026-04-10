@@ -242,6 +242,9 @@ export const featuredListings: Listing[] = [
   },
 ];
 
+/** Auction listings for the `/auctions` catalog grid (ending-soon items are shown separately in `AuctionEndingRow`). */
+export const auctionCatalogListings: Listing[] = featuredListings.filter((x) => x.format === "auction");
+
 export function filterByTab(
   listings: Listing[],
   tab: "all" | "auctions" | "bin" | "business",

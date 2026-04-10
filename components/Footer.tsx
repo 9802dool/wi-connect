@@ -26,7 +26,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#auctions" className="hover:text-wi-accent">
+                <a href="/auctions" className="hover:text-wi-accent">
                   Auctions
                 </a>
               </li>
