@@ -7,6 +7,10 @@ export interface Listing {
   id: string;
   title: string;
   price: string;
+  /** USD amount for multi-currency display; omit when `price` is non-numeric (e.g. “Request quote”). */
+  usdAmount?: number;
+  pricePrefix?: string;
+  priceSuffix?: string;
   /** Consumer vs business seller */
   type: ListingType;
   /** How the item is sold — eBay-style modes */
@@ -38,6 +42,7 @@ export const dailyDeals: Listing[] = [
     id: "d1",
     title: "Smartwatch — last season model",
     price: "$79.00",
+    usdAmount: 79,
     type: "c2c",
     format: "buy_it_now",
     seller: "gadget_cycle",
@@ -51,6 +56,7 @@ export const dailyDeals: Listing[] = [
     id: "d2",
     title: "Office chair — ergonomic mesh",
     price: "$199.00",
+    usdAmount: 199,
     type: "b2c",
     format: "buy_it_now",
     seller: "Workspace Direct",
@@ -64,6 +70,8 @@ export const dailyDeals: Listing[] = [
     id: "d3",
     title: "Vintage vinyl bundle (×12)",
     price: "$45.00 or best offer",
+    usdAmount: 45,
+    priceSuffix: " or best offer",
     type: "c2c",
     format: "best_offer",
     seller: "crate_digger_tt",
@@ -79,6 +87,7 @@ export const auctionsEnding: Listing[] = [
     id: "a1",
     title: "Mirrorless camera body + battery grip",
     price: "$412.00",
+    usdAmount: 412,
     type: "c2c",
     format: "auction",
     seller: "shutter_north",
@@ -93,6 +102,7 @@ export const auctionsEnding: Listing[] = [
     id: "a2",
     title: "Gaming GPU — tested, boxed",
     price: "$289.00",
+    usdAmount: 289,
     type: "c2c",
     format: "auction",
     seller: "pc_parts_au",
@@ -107,6 +117,7 @@ export const auctionsEnding: Listing[] = [
     id: "a3",
     title: "Designer sneakers — size 10",
     price: "$156.00",
+    usdAmount: 156,
     type: "c2c",
     format: "auction",
     seller: "kickz_resale",
@@ -124,6 +135,7 @@ export const featuredListings: Listing[] = [
     id: "1",
     title: "Wireless noise-cancelling headphones — open box",
     price: "$189.00",
+    usdAmount: 189,
     type: "c2c",
     format: "buy_it_now",
     seller: "audio_trader_uk",
@@ -137,6 +149,7 @@ export const featuredListings: Listing[] = [
     id: "2",
     title: "Commercial espresso machine (B2B lease available)",
     price: "$2,450.00",
+    usdAmount: 2450,
     type: "b2c",
     format: "business_quote",
     seller: "GlobalKitchen Pro",
@@ -150,6 +163,8 @@ export const featuredListings: Listing[] = [
     id: "3",
     title: "Vintage film camera + lenses — authenticated",
     price: "$640.00 or best offer",
+    usdAmount: 640,
+    priceSuffix: " or best offer",
     type: "c2c",
     format: "best_offer",
     seller: "collector_maria",
@@ -174,6 +189,7 @@ export const featuredListings: Listing[] = [
     id: "5",
     title: "Designer handbag — authenticity guaranteed",
     price: "$1,120.00",
+    usdAmount: 1120,
     type: "c2c",
     format: "auction",
     seller: "lux_resale_sg",
@@ -188,6 +204,8 @@ export const featuredListings: Listing[] = [
     id: "6",
     title: "Solar panel kits — manufacturer direct",
     price: "From $899.00",
+    usdAmount: 899,
+    pricePrefix: "From ",
     type: "b2c",
     format: "buy_it_now",
     seller: "GreenPower Industries",
@@ -201,6 +219,7 @@ export const featuredListings: Listing[] = [
     id: "7",
     title: "Refurbished tablet — 256GB, warranty",
     price: "$329.00",
+    usdAmount: 329,
     type: "c2c",
     format: "buy_it_now",
     seller: "renewed_tech_ca",

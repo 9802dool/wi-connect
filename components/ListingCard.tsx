@@ -1,4 +1,6 @@
 import Image from "next/image";
+
+import { PriceDisplay } from "@/components/PriceDisplay";
 import type { Listing } from "@/lib/listings";
 
 function TypeBadge({ type }: { type: Listing["type"] }) {
@@ -68,7 +70,9 @@ export function ListingCard({ listing }: { listing: Listing }) {
         <h3 className="line-clamp-2 min-h-[2.5rem] text-sm font-semibold leading-snug text-wi-navy group-hover:text-wi-blue">
           {listing.title}
         </h3>
-        <p className="mt-2 text-lg font-bold tabular-nums text-wi-navy">{listing.price}</p>
+        <p className="mt-2 text-lg font-bold tabular-nums text-wi-navy">
+          <PriceDisplay listing={listing} />
+        </p>
         {listing.format === "auction" && (
           <div className="mt-1 space-y-0.5 text-xs">
             {listing.bids != null && listing.bids > 0 && (
