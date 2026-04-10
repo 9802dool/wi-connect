@@ -14,9 +14,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "WI CONNECT — Global marketplace (C2C & B2C)",
+  title: "WI CONNECT — Online marketplace (C2C & B2C)",
   description:
-    "WI CONNECT is a multinational e-commerce marketplace for consumer-to-consumer and business-to-consumer commerce worldwide.",
+    "Shop auctions, Buy It Now, and Best Offer from individuals; buy in bulk from verified business sellers on WI CONNECT.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

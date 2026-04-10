@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --wi-gradient: linear-gradient(135deg, #0a1628 0%, #1e3a5f 45%, #0d2847 100%);
+  --wi-gradient: linear-gradient(135deg, #0a1628 0%, #1e3a5f 42%, #0d2847 100%);
 }
 
 body {
-  @apply antialiased text-wi-navy bg-white;
+  @apply antialiased text-wi-navy bg-slate-50;
 }
