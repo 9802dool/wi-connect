@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   title: "WI CONNECT — Online marketplace (C2C & B2C)",
   description:
     "Shop Buy It Now and Best Offer from individuals; buy in bulk from verified business sellers on WI CONNECT.",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

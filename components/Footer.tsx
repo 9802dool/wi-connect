@@ -1,12 +1,21 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export function Footer() {
   return (
     <footer id="help" className="scroll-mt-28 border-t border-slate-800 bg-wi-navy text-white">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <p className="font-display text-xl font-bold">
-              WI <span className="text-wi-accent">CONNECT</span>
-            </p>
+            <Link href="/" className="relative mb-3 block h-10 w-44 sm:h-11 sm:w-48">
+              <Image
+                src="/logo.png"
+                alt="WI CONNECT"
+                fill
+                className="object-contain object-left"
+                sizes="192px"
+              />
+            </Link>
             <p className="mt-3 max-w-sm text-sm text-white/70">
               Multinational online marketplace: fixed-price and offer-based listings alongside verified business
               sellers — discovery, trust, and checkout in one place.

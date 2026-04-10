@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { CurrencySelector } from "@/components/CurrencySelector";
@@ -9,8 +10,18 @@ export function Header() {
       <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-4">
           <div className="flex items-center justify-between gap-4 lg:justify-start">
-            <Link href="/" className="font-display shrink-0 text-xl font-bold tracking-tight text-white">
-              WI <span className="text-wi-accent">CONNECT</span>
+            <Link
+              href="/"
+              className="relative block h-8 w-[min(200px,55vw)] shrink-0 sm:h-9 sm:w-[180px]"
+            >
+              <Image
+                src="/logo.png"
+                alt="WI CONNECT"
+                fill
+                className="object-contain object-left"
+                priority
+                sizes="(max-width: 640px) 55vw, 180px"
+              />
             </Link>
             <div className="flex items-center gap-2 lg:hidden">
               <button
