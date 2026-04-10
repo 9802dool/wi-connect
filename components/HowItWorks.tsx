@@ -22,7 +22,7 @@ export function HowItWorks() {
                   ✓
                 </span>
                 <span>
-                  <strong>Auctions</strong> with proxy bidding, or <strong>Buy It Now</strong> for instant sales.
+                  <strong>Buy It Now</strong> for instant sales and clear fixed pricing.
                 </span>
               </li>
               <li className="flex gap-2">

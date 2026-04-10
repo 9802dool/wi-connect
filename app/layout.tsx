@@ -18,7 +18,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "WI CONNECT — Online marketplace (C2C & B2C)",
   description:
-    "Shop auctions, Buy It Now, and Best Offer from individuals; buy in bulk from verified business sellers on WI CONNECT.",
+    "Shop Buy It Now and Best Offer from individuals; buy in bulk from verified business sellers on WI CONNECT.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

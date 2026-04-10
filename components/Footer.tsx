@@ -8,8 +8,8 @@ export function Footer() {
               WI <span className="text-wi-accent">CONNECT</span>
             </p>
             <p className="mt-3 max-w-sm text-sm text-white/70">
-              Multinational online marketplace: consumer auctions and fixed-price listings alongside verified
-              business sellers — discovery, trust, and checkout in one place.
+              Multinational online marketplace: fixed-price and offer-based listings alongside verified business
+              sellers — discovery, trust, and checkout in one place.
             </p>
           </div>
           <div>
@@ -23,11 +23,6 @@ export function Footer() {
               <li>
                 <a href="#deals" className="hover:text-wi-accent">
                   Daily Deals
-                </a>
-              </li>
-              <li>
-                <a href="/auctions" className="hover:text-wi-accent">
-                  Auctions
                 </a>
               </li>
               <li>

@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export function HeroPromo() {
   return (
     <section className="relative overflow-hidden bg-[var(--wi-gradient)] px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
@@ -8,15 +6,12 @@ export function HeroPromo() {
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-wi-accent">Global marketplace</p>
           <h1 className="mt-2 font-display text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-            The world shops here —{" "}
-            <Link href="/auctions" className="text-wi-accent hover:underline">
-              C2C auctions
-            </Link>{" "}
-            & <span className="text-wi-accent">B2C stores</span> in one place
+            The world shops here — <span className="text-wi-accent">C2C listings</span> &{" "}
+            <span className="text-wi-accent">B2C stores</span> in one place
           </h1>
           <p className="mt-4 max-w-xl text-base text-white/80 sm:text-lg">
-            WI CONNECT pairs consumer listings (bids, Buy It Now, Best Offer) with verified business sellers,
-            bulk pricing, and RFQs — modeled on proven marketplace patterns you already know.
+            WI CONNECT pairs consumer listings (Buy It Now, Best Offer) with verified business sellers, bulk pricing,
+            and RFQs — modeled on proven marketplace patterns you already know.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a

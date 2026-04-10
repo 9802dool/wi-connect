@@ -1,7 +1,7 @@
 export type ListingType = "c2c" | "b2c";
 
-/** Mirrors common marketplace listing formats (auctions, fixed price, offers, B2B quotes). */
-export type ListingFormat = "auction" | "buy_it_now" | "best_offer" | "business_quote";
+/** Listing sale format (fixed price, offers, B2B quotes). */
+export type ListingFormat = "buy_it_now" | "best_offer" | "business_quote";
 
 export interface Listing {
   id: string;
@@ -13,19 +13,15 @@ export interface Listing {
   priceSuffix?: string;
   /** Consumer vs business seller */
   type: ListingType;
-  /** How the item is sold — eBay-style modes */
+  /** How the item is sold */
   format: ListingFormat;
   seller: string;
   rating: number;
-  bids?: number;
-  /** Auction countdown label */
-  endsIn?: string;
   image: string;
   shipping: string;
   freeShipping?: boolean;
   /** Top Rated / verified business */
   badge?: "top_rated" | "verified_business";
-  watchers?: number;
 }
 
 export const categories = [
@@ -82,54 +78,6 @@ export const dailyDeals: Listing[] = [
   },
 ];
 
-export const auctionsEnding: Listing[] = [
-  {
-    id: "a1",
-    title: "Mirrorless camera body + battery grip",
-    price: "$412.00",
-    usdAmount: 412,
-    type: "c2c",
-    format: "auction",
-    seller: "shutter_north",
-    rating: 4.9,
-    bids: 24,
-    endsIn: "Ends in 1h 12m",
-    image: "/placeholder.svg",
-    shipping: "Insured",
-    watchers: 38,
-  },
-  {
-    id: "a2",
-    title: "Gaming GPU — tested, boxed",
-    price: "$289.00",
-    usdAmount: 289,
-    type: "c2c",
-    format: "auction",
-    seller: "pc_parts_au",
-    rating: 4.7,
-    bids: 41,
-    endsIn: "Ends in 3h 05m",
-    image: "/placeholder.svg",
-    shipping: "Tracked",
-    watchers: 112,
-  },
-  {
-    id: "a3",
-    title: "Designer sneakers — size 10",
-    price: "$156.00",
-    usdAmount: 156,
-    type: "c2c",
-    format: "auction",
-    seller: "kickz_resale",
-    rating: 4.8,
-    bids: 9,
-    endsIn: "Ends in 45m",
-    image: "/placeholder.svg",
-    shipping: "Express",
-    badge: "top_rated",
-  },
-];
-
 export const featuredListings: Listing[] = [
   {
     id: "1",
@@ -169,7 +117,6 @@ export const featuredListings: Listing[] = [
     format: "best_offer",
     seller: "collector_maria",
     rating: 5.0,
-    bids: 8,
     image: "/placeholder.svg",
     shipping: "Insured international",
   },
@@ -191,11 +138,9 @@ export const featuredListings: Listing[] = [
     price: "$1,120.00",
     usdAmount: 1120,
     type: "c2c",
-    format: "auction",
+    format: "buy_it_now",
     seller: "lux_resale_sg",
     rating: 4.7,
-    bids: 3,
-    endsIn: "Ends in 6h 20m",
     image: "/placeholder.svg",
     shipping: "Express worldwide",
     badge: "top_rated",
@@ -242,15 +187,11 @@ export const featuredListings: Listing[] = [
   },
 ];
 
-/** Auction listings for the `/auctions` catalog grid (ending-soon items are shown separately in `AuctionEndingRow`). */
-export const auctionCatalogListings: Listing[] = featuredListings.filter((x) => x.format === "auction");
-
 export function filterByTab(
   listings: Listing[],
-  tab: "all" | "auctions" | "bin" | "business",
+  tab: "all" | "bin" | "business",
 ): Listing[] {
   if (tab === "all") return listings;
-  if (tab === "auctions") return listings.filter((l) => l.format === "auction");
   if (tab === "bin")
     return listings.filter((l) => l.format === "buy_it_now" || l.format === "best_offer");
   return listings.filter((l) => l.type === "b2c" || l.format === "business_quote");
