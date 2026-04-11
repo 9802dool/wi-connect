@@ -40,10 +40,10 @@ export function CurrencySelector({ variant = "light" }: { variant?: Variant }) {
               onClick={() => setCurrency(code)}
               aria-pressed={active}
               title={CURRENCY_LABELS[code]}
-              className={`min-h-[32px] rounded-md px-2.5 py-1 text-xs font-bold transition sm:min-h-[34px] sm:px-3 sm:text-sm ${
+              className={`min-h-[32px] rounded-lg px-2.5 py-1 text-xs font-bold transition sm:min-h-[34px] sm:px-3 sm:text-sm ${
                 active
                   ? isDark
-                    ? "bg-wi-accent text-wi-navy shadow"
+                    ? "bg-wi-teal text-white shadow"
                     : "bg-wi-navy text-white shadow-sm"
                   : isDark
                     ? "text-white/90 hover:bg-white/10"

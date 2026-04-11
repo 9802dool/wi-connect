@@ -19,15 +19,15 @@ const items = [
 
 export function TrustStrip() {
   return (
-    <section className="border-y border-slate-200 bg-white py-10">
-      <div className="mx-auto grid max-w-7xl gap-4 px-4 sm:grid-cols-2 lg:grid-cols-4 sm:px-6 lg:px-8">
+    <section className="border-y border-sky-100/80 bg-gradient-to-b from-white to-wi-surface/60 py-12">
+      <div className="mx-auto grid max-w-7xl gap-4 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
         {items.map((item) => (
           <div
             key={item.title}
-            className="rounded-xl border border-slate-100 bg-wi-surface/50 p-4 shadow-sm"
+            className="rounded-2xl border border-sky-100/90 bg-white/90 p-5 shadow-wi-sm backdrop-blur-sm transition hover:shadow-wi-md"
           >
             <h3 className="font-display font-semibold text-wi-navy">{item.title}</h3>
-            <p className="mt-1 text-sm text-slate-600">{item.desc}</p>
+            <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{item.desc}</p>
           </div>
         ))}
       </div>

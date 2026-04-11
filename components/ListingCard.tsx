@@ -34,7 +34,7 @@ function FormatBadge({ format }: { format: Listing["format"] }) {
 
 export function ListingCard({ listing }: { listing: Listing }) {
   return (
-    <article className="group flex flex-col overflow-hidden rounded-lg border border-slate-200/90 bg-white shadow-sm ring-1 ring-black/[0.03] transition hover:-translate-y-0.5 hover:shadow-md">
+    <article className="group flex flex-col overflow-hidden rounded-2xl border border-sky-100/90 bg-white shadow-wi-sm ring-1 ring-sky-900/5 transition hover:-translate-y-1 hover:shadow-wi-md">
       <div className="relative aspect-[4/3] bg-gradient-to-br from-slate-100 to-slate-200/80">
         <Image
           src={listing.image}
@@ -66,7 +66,7 @@ export function ListingCard({ listing }: { listing: Listing }) {
         </button>
       </div>
       <div className="flex flex-1 flex-col p-3">
-        <h3 className="line-clamp-2 min-h-[2.5rem] text-sm font-semibold leading-snug text-wi-navy group-hover:text-wi-blue">
+        <h3 className="line-clamp-2 min-h-[2.5rem] text-sm font-semibold leading-snug text-wi-navy group-hover:text-wi-ocean">
           {listing.title}
         </h3>
         <p className="mt-2 text-lg font-bold tabular-nums text-wi-navy">

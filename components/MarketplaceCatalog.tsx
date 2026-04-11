@@ -19,15 +19,15 @@ export function MarketplaceCatalog() {
   const rows = useMemo(() => filterByTab(featuredListings, tab), [tab]);
 
   return (
-    <section id="browse" className="scroll-mt-28 bg-wi-surface py-12">
+    <section id="browse" className="scroll-mt-28 bg-gradient-to-b from-wi-surface via-white to-wi-muted/40 py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="font-display text-2xl font-bold text-wi-navy">Marketplace</h2>
-        <p className="mt-1 max-w-3xl text-slate-600">
+        <h2 className="font-display text-3xl font-bold tracking-tight text-wi-navy">Marketplace</h2>
+        <p className="mt-2 max-w-3xl text-slate-600">
           Filter by how you want to buy: instant &quot;Buy It Now&quot; and Best Offer from individuals, or verified
           business inventory and quotes.
         </p>
         <div
-          className="mt-6 flex flex-wrap gap-2 border-b border-slate-200 pb-3"
+          className="mt-8 flex flex-wrap gap-2 border-b border-sky-100/80 pb-4"
           role="tablist"
           aria-label="Listing type"
         >
@@ -38,10 +38,10 @@ export function MarketplaceCatalog() {
               role="tab"
               aria-selected={tab === t.id}
               onClick={() => setTab(t.id)}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+              className={`rounded-xl px-5 py-2.5 text-sm font-semibold transition ${
                 tab === t.id
-                  ? "bg-wi-navy text-white shadow"
-                  : "bg-white text-wi-navy ring-1 ring-slate-200 hover:bg-slate-50"
+                  ? "bg-gradient-to-r from-wi-ocean to-wi-navy text-white shadow-wi-md"
+                  : "bg-white/90 text-wi-navy shadow-wi-sm ring-1 ring-sky-100 hover:bg-sky-50/90"
               }`}
             >
               {t.label}
