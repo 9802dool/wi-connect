@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum OrderStatus {
+  PENDING_PAYMENT
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
+enum PaymentMethod {
+  BANK_TRANSFER
+  CASH_ON_DELIVERY
+  PAYWISE
+}
+
+enum TxType {
+  SALE
+  PLATFORM_FEE
+  PAYOUT
+  REFUND
+}
+
+enum PayoutStatus {
+  PENDING
+  PROCESSING
+  PAID
+  FAILED
+}
+
+model Seller {
+  id           String        @id @default(cuid())
+  userId       String        @unique
+  bankDetails  Json?
+  transactions Transaction[]
+  payouts      Payout[]
+}
+
+model Order {
+  id               String        @id @default(cuid())
+  sellerId         String
+  totalAmount      Int
+  status           OrderStatus   @default(PENDING_PAYMENT)
+  paymentMethod    PaymentMethod
+  bankReferenceNum String?
+  transactions     Transaction[]
+  createdAt        DateTime      @default(now())
+}
+
+model Transaction {
+  id        String   @id @default(cuid())
+  sellerId  String
+  seller    Seller   @relation(fields: [sellerId], references: [id])
+  orderId   String?
+  order     Order?   @relation(fields: [orderId], references: [id])
+  payoutId  String?
+  payout    Payout?  @relation(fields: [payoutId], references: [id])
+  type      TxType
+  amount    Int
+  createdAt DateTime @default(now())
+}
+
+model Payout {
+  id           String        @id @default(cuid())
+  sellerId     String
+  seller       Seller        @relation(fields: [sellerId], references: [id])
+  amount       Int
+  status       PayoutStatus  @default(PENDING)
+  reference    String?
+  transactions Transaction[]
+  createdAt    DateTime      @default(now())
+}

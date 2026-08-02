@@ -1,4 +1,4 @@
-/** Supported display currencies (USD base for conversion). */
+/** Supported display currencies (TTD base for Trinidad marketplace). */
 export type CurrencyCode = "USD" | "TTD" | "XCD";
 
 /** Approximate USD→local rates for demo display (TTD floats; XCD is pegged to USD). */
@@ -15,6 +15,12 @@ export const CURRENCY_LABELS: Record<CurrencyCode, string> = {
 };
 
 export function convertFromUsd(usd: number, code: CurrencyCode): number {
+  return usd * USD_TO[code];
+}
+
+export function convertFromTtd(ttd: number, code: CurrencyCode): number {
+  if (code === "TTD") return ttd;
+  const usd = ttd / USD_TO.TTD;
   return usd * USD_TO[code];
 }
 

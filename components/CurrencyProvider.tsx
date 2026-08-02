@@ -14,14 +14,14 @@ type Ctx = {
 const CurrencyContext = createContext<Ctx | null>(null);
 
 function readStored(): CurrencyCode {
-  if (typeof window === "undefined") return "USD";
+  if (typeof window === "undefined") return "TTD";
   const v = window.localStorage.getItem(STORAGE_KEY);
   if (v === "USD" || v === "TTD" || v === "XCD") return v;
-  return "USD";
+  return "TTD";
 }
 
 export function CurrencyProvider({ children }: { children: React.ReactNode }) {
-  const [currency, setCurrencyState] = useState<CurrencyCode>("USD");
+  const [currency, setCurrencyState] = useState<CurrencyCode>("TTD");
 
   useEffect(() => {
     setCurrencyState(readStored());

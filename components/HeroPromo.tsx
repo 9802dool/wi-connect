@@ -6,9 +6,9 @@ export function HeroPromo() {
       <div className="pointer-events-none absolute -bottom-32 left-1/4 h-64 w-64 rounded-full bg-wi-accent/10 blur-3xl" />
       <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-center">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-wi-teal">Global marketplace</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-wi-teal">Trinidad &amp; Tobago marketplace</p>
           <h1 className="mt-3 font-display text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-            The world shops here — <span className="text-wi-sun">C2C listings</span> &{" "}
+            Shop local — <span className="text-wi-sun">C2C listings</span> &{" "}
             <span className="text-wi-teal">B2C stores</span> in one place
           </h1>
           <p className="mt-4 max-w-xl text-base text-white/85 sm:text-lg">
@@ -41,7 +41,7 @@ export function HeroPromo() {
             { k: "Active listings", v: "120M+", sub: "Across regions" },
             { k: "Business sellers", v: "480K+", sub: "Verified & bulk" },
             { k: "Buyer protection", v: "On eligible orders", sub: "Money-back eligible" },
-            { k: "Ship worldwide", v: "190+", sub: "Countries & territories" },
+            { k: "Local delivery", v: "TTPost", sub: "Island-wide courier network" },
           ].map((s) => (
             <div
               key={s.k}

@@ -1,7 +1,7 @@
 "use client";
 
 import type { Listing } from "@/lib/listings";
-import { convertFromUsd, formatMoney } from "@/lib/currency";
+import { convertFromTtd, formatMoney } from "@/lib/currency";
 import { useCurrency } from "@/components/CurrencyProvider";
 
 export function PriceDisplay({
@@ -13,11 +13,11 @@ export function PriceDisplay({
 }) {
   const { currency } = useCurrency();
 
-  if (typeof listing.usdAmount !== "number") {
+  if (typeof listing.ttdAmount !== "number") {
     return <span className={className}>{listing.price}</span>;
   }
 
-  const converted = convertFromUsd(listing.usdAmount, currency);
+  const converted = convertFromTtd(listing.ttdAmount, currency);
   const formatted = formatMoney(converted, currency);
 
   return (
