@@ -1,7 +1,7 @@
 export function HeroPromo() {
   return (
-    <section className="relative overflow-hidden bg-[var(--wi-gradient)] px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-      <div className="pointer-events-none absolute inset-0 bg-[var(--wi-hero-glow)]" />
+    <section className="relative overflow-hidden bg-[image:var(--wi-gradient)] px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+      <div className="pointer-events-none absolute inset-0 bg-[image:var(--wi-hero-glow)]" />
       <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-wi-teal/10 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-32 left-1/4 h-64 w-64 rounded-full bg-wi-accent/10 blur-3xl" />
       <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-center">

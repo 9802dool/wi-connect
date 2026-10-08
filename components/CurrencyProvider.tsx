@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 
-import type { CurrencyCode } from "@/lib/currency";
+import { isCurrencyCode, type CurrencyCode } from "@/lib/currency";
 
 const STORAGE_KEY = "wi-connect-currency";
 
@@ -15,8 +15,12 @@ const CurrencyContext = createContext<Ctx | null>(null);
 
 function readStored(): CurrencyCode {
   if (typeof window === "undefined") return "TTD";
-  const v = window.localStorage.getItem(STORAGE_KEY);
-  if (v === "USD" || v === "TTD" || v === "XCD") return v;
+  try {
+    const v = window.localStorage.getItem(STORAGE_KEY);
+    if (isCurrencyCode(v)) return v;
+  } catch {
+    /* storage unavailable (e.g. private mode) */
+  }
   return "TTD";
 }
 
